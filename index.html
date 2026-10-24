@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DrJekyllApps</title>
+  <meta name="description" content="DRJEKYLLAPPS LLC makes DrJekyll, an iPhone app that helps cancer patients follow their lab results over time. Coming soon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      color-scheme: light;
+      --teal: #0F6E56;
+      --band: #E1F5EE;
+      --text: #1a1a18;
+      --text-muted: #5f5f5b;
+      --text-faint: #8c8c87;
+      --border: rgba(0,0,0,0.10);
+      --bg: #faf9f7;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --teal: #5CC9A7;
+        --band: #16302A;
+        --text: #ecebe7;
+        --text-muted: #b3b2ad;
+        --text-faint: #85847f;
+        --border: rgba(255,255,255,0.12);
+        --bg: #161615;
+      }
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 18vh 1.5rem 3rem;
+    }
+
+    /* The one memorable thing: a lab trend line moving through its reference range */
+    .trend { display: block; width: 100%; max-width: 360px; height: auto; margin-bottom: 2.25rem; }
+    .trend .band { fill: var(--band); }
+    .trend .line {
+      fill: none;
+      stroke: var(--teal);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 520;
+      stroke-dashoffset: 520;
+      animation: draw 1.8s ease-out 0.2s forwards;
+    }
+    .trend .dot { fill: var(--teal); opacity: 0; animation: appear 0.4s ease-out 1.9s forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes appear { to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .trend .line { animation: none; stroke-dashoffset: 0; }
+      .trend .dot { animation: none; opacity: 1; }
+    }
+
+    h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.25rem, 7vw, 3.25rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .lede {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1875rem;
+      line-height: 1.6;
+      color: var(--text);
+      max-width: 34em;
+      margin-bottom: 0.75rem;
+    }
+    .sub {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 36em;
+      margin-bottom: 2.5rem;
+    }
+    .contact { font-size: 0.9375rem; color: var(--text-muted); }
+    .contact a {
+      color: var(--teal);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+    .contact a:hover { border-bottom-width: 2px; }
+
+    footer {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem 2rem;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.8125rem;
+      color: var(--text-faint);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+    a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="trend" viewBox="0 0 360 96" role="img" aria-label="A lab result trend line settling inside its normal range">
+      <rect class="band" x="0" y="34" width="360" height="30" rx="4" />
+      <polyline class="line" points="8,14 58,22 108,40 158,30 208,56 258,46 308,50 344,48" />
+      <circle class="dot" cx="344" cy="48" r="4.5" />
+    </svg>
+
+    <h1>DrJekyllApps</h1>
+    <p class="lede">DrJekyll, an iPhone app that helps cancer patients follow their lab results over time, is coming soon.</p>
+    <p class="sub">It reads your results from Apple Health and turns them into clear trend charts you can bring to your care team. Your results stay on your phone.</p>
+    <p class="contact">Say hello: <a href="mailto:hello@drjekyllapps.com">hello@drjekyllapps.com</a></p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 DRJEKYLLAPPS LLC, New York, NY</span>
+    <a href="/privacy">Privacy policy</a>
+  </footer>
+</body>
+</html>
