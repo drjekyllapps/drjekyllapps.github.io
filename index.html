@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DrJekyllApps</title>
   <meta name="description" content="DRJEKYLLAPPS LLC makes DrJekyll, an iPhone app that helps cancer patients follow their lab results over time. Coming soon." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
@@ -49,25 +51,14 @@
       padding: 18vh 1.5rem 3rem;
     }
 
-    /* The one memorable thing: a lab trend line moving through its reference range */
-    .trend { display: block; width: 100%; max-width: 360px; height: auto; margin-bottom: 2.25rem; }
-    .trend .band { fill: var(--band); }
-    .trend .line {
-      fill: none;
-      stroke: var(--teal);
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 520;
-      stroke-dashoffset: 520;
-      animation: draw 1.8s ease-out 0.2s forwards;
-    }
-    .trend .dot { fill: var(--teal); opacity: 0; animation: appear 0.4s ease-out 1.9s forwards; }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes appear { to { opacity: 1; } }
-    @media (prefers-reduced-motion: reduce) {
-      .trend .line { animation: none; stroke-dashoffset: 0; }
-      .trend .dot { animation: none; opacity: 1; }
+    /* The app icon, shaped like it is on an iPhone home screen */
+    .app-icon {
+      display: block;
+      width: 112px;
+      height: 112px;
+      border-radius: 22.5%;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 8px 24px rgba(15,110,86,0.18);
     }
 
     h1 {
@@ -122,11 +113,7 @@
 </head>
 <body>
   <main>
-    <svg class="trend" viewBox="0 0 360 96" role="img" aria-label="A lab result trend line settling inside its normal range">
-      <rect class="band" x="0" y="34" width="360" height="30" rx="4" />
-      <polyline class="line" points="8,14 58,22 108,40 158,30 208,56 258,46 308,50 344,48" />
-      <circle class="dot" cx="344" cy="48" r="4.5" />
-    </svg>
+    <img class="app-icon" src="/app-icon.png" width="112" height="112" alt="DrJekyll app icon" />
 
     <h1>DrJekyllApps</h1>
     <p class="lede">DrJekyll, an iPhone app that helps cancer patients follow their lab results over time, is coming soon.</p>
